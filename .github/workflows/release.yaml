@@ -33,4 +33,4 @@ jobs:
           ## This could be removed once implemented in the action
         with:
           charts_dir: "charts/${{ env.CHART_NAME }}"
-          charts_repo_url: "http://christianackman.com/fleet-infra/"
+          charts_repo_url: "http://christianackman.com/charts/"
