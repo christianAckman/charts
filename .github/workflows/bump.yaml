@@ -43,6 +43,6 @@ jobs:
 #   helm local-chart-version bump -c "charts/$chart" -s patch
 #   new_version="$(helm local-chart-version get -c charts/$chart)"
 #   git add charts/$chart
-#   git commit -m "[release]: Updating $chart to $new_version"
+#   git commit -m "[release]: $chart -- $new_version"
 #   git push origin HEAD:master
 # done

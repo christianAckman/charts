@@ -22,7 +22,7 @@ jobs:
         run: |
           chart=$(echo "${{ github.event.head_commit.message }}" | awk '{print $2}')
           echo $chart
-          echo ::set-output name=chart_name::$chart
+          echo "CHART_NAME=$chart" >> $GITHUB_ENV
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.0.0
@@ -32,4 +32,4 @@ jobs:
           ## Specifying a single chart to avoid releasing all charts which may already be released
           ## This could be removed once implemented in the action
         with:
-          charts_dir: "charts/$chart_name"
+          charts_dir: "charts/${{ env.CHART_NAME }}"
