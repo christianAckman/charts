@@ -3,6 +3,16 @@ entries:
   test:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-04-14T14:45:21.152474645Z"
+    description: A Helm chart for Kubernetes
+    digest: 795c66e3824b0ed3cd2be989c032972a98448f47c49be03c9d1871b90ab915b3
+    name: test
+    type: application
+    urls:
+    - https://github.com/christianAckman/fleet-infra/releases/download/test-0.1.8/test-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-04-14T08:28:29.019833023Z"
     description: A Helm chart for Kubernetes
     digest: 3ad12f7eab94b1522292542e7c84d71b49d982c9e7c1984ac334231149b0267c
