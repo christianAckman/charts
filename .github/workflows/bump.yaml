@@ -2,6 +2,8 @@ name: Increment Helm Chart Version
 
 on:
   push:
+    paths:
+      - 'charts/**'
     branches:
       - master
 
