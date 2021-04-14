@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: httpbin
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: httpbin
+      sourceRef:
+        kind: HelmRepository
+        name: ackman
+        namespace: flux-system
+      interval: 1m
+  values:
+    replicaCount: 2
