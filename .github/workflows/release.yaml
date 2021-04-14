@@ -8,6 +8,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '[release]')"
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -16,27 +17,6 @@ jobs:
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      - name: Install Helm
-        run: |
-          curl -fsSLo get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-          chmod 700 get_helm.sh
-          ./get_helm.sh
-      
-      - name: Install Helm Version Bumper
-        run: |
-          helm plugin install https://github.com/mbenabda/helm-local-chart-version
-
-      - name: Increment Chart Versions
-        run: |
-          changed_charts="$(git diff --name-only HEAD~1 | awk -F '/' '$1 ~ /src/  {print $2}' | uniq)"
-          for chart in $changed_charts; do
-            helm local-chart-version bump -c "charts/$chart" -s patch
-            new_version="$(helm local-chart-version get -c charts/$chart)"
-            git add charts/$chart
-            git commit -m "Updating $chart to $version"
-            git push
-          done
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.0.0
