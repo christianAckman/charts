@@ -1,25 +1,14 @@
 apiVersion: v1
 entries:
-  httpbin:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2021-04-14T07:45:48.619168348Z"
-    description: A Helm chart for Kubernetes
-    digest: 633c7d14ed2aa7325da97897715201665f35d8a71b1facf9ae3b69be49e74bfc
-    name: httpbin
-    type: application
-    urls:
-    - https://github.com/christianAckman/fleet-infra/releases/download/httpbin-0.1.2/httpbin-0.1.2.tgz
-    version: 0.1.2
   test:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-04-14T07:45:48.743220056Z"
+    created: "2021-04-14T08:28:29.019833023Z"
     description: A Helm chart for Kubernetes
-    digest: 8ab613b339fe49801b6e86dd48b5bf6d97b4c91e6f0a60bcb060c00209243703
+    digest: 3ad12f7eab94b1522292542e7c84d71b49d982c9e7c1984ac334231149b0267c
     name: test
     type: application
     urls:
-    - https://github.com/christianAckman/fleet-infra/releases/download/test-0.1.3/test-0.1.3.tgz
-    version: 0.1.3
-generated: "2021-04-14T07:45:48.364829866Z"
+    - https://github.com/christianAckman/fleet-infra/releases/download/test-0.1.7/test-0.1.7.tgz
+    version: 0.1.7
+generated: "2021-04-14T08:28:28.784640986Z"
