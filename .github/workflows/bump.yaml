@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  release:
+  bump:
     runs-on: ubuntu-latest
     if: "! contains(github.event.head_commit.message, '[release]')"
     steps:
@@ -32,11 +32,17 @@ jobs:
       - name: Increment Chart Versions
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          changed_charts="$(git diff --name-only HEAD~1 | awk -F '/' '$1 ~ /src/  {print $2}' | uniq)"
-          for chart in $changed_charts; do
-            helm local-chart-version bump -c "charts/$chart" -s patch
-            new_version="$(helm local-chart-version get -c charts/$chart)"
-            git add charts/$chart
-            git commit -m "[release]: Updating $chart to $version"
-            git push
-          done
+          helm local-chart-version bump -c "charts/test" -s patch
+          new_version="$(helm local-chart-version get -c charts/test)"
+          git add charts/test
+          git commit -m "[release]: Updating test to $new_version"
+          git push
+
+# changed_charts="$(git diff --name-only HEAD~1 | awk -F '/' '$1 ~ /src/  {print $2}' | uniq)"
+# for chart in $changed_charts; do
+#   helm local-chart-version bump -c "charts/$chart" -s patch
+#   new_version="$(helm local-chart-version get -c charts/$chart)"
+#   git add charts/$chart
+#   git commit -m "[release]: Updating $chart to $version"
+#   git push
+# done
