@@ -18,7 +18,18 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      - name: Get Modified Chart
+        run: |
+          chart=$(echo "${{ github.event.head_commit.message }}" | awk '{print $2}')
+          echo $chart
+          echo ::set-output name=chart_name::$chart
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.0.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          # https://github.com/helm/chart-releaser/pull/111
+          ## Specifying a single chart to avoid releasing all charts which may already be released
+          ## This could be removed once implemented in the action
+        with:
+          charts_dir: "charts/$chart_name"
