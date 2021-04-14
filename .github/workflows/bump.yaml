@@ -31,7 +31,7 @@ jobs:
       # https://stackoverflow.com/a/58393457
       - name: Increment Chart Versions
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
           helm local-chart-version bump -c "charts/test" -s patch
           new_version="$(helm local-chart-version get -c charts/test)"
           git add charts/test
