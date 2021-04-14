@@ -1,4 +1,4 @@
-name: Release Charts
+name: Increment Helm Chart Version
 
 on:
   push:
@@ -28,8 +28,10 @@ jobs:
         run: |
           helm plugin install https://github.com/mbenabda/helm-local-chart-version
 
+      # https://stackoverflow.com/a/58393457
       - name: Increment Chart Versions
         run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           changed_charts="$(git diff --name-only HEAD~1 | awk -F '/' '$1 ~ /src/  {print $2}' | uniq)"
           for chart in $changed_charts; do
             helm local-chart-version bump -c "charts/$chart" -s patch
