@@ -3,6 +3,16 @@ entries:
   test:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-04-14T15:00:31.796924622Z"
+    description: A Helm chart for Kubernetes
+    digest: 282481ea499107c309ef843365ac376684e37f2296854d915e09e3fc5bb701c5
+    name: test
+    type: application
+    urls:
+    - https://github.com/christianAckman/charts/releases/download/test-0.1.9/test-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-04-14T14:45:21.152474645Z"
     description: A Helm chart for Kubernetes
     digest: 795c66e3824b0ed3cd2be989c032972a98448f47c49be03c9d1871b90ab915b3
