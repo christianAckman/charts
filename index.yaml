@@ -3,6 +3,16 @@ entries:
   httpbin:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-04-15T02:29:12.305751413Z"
+    description: A Helm chart for Kubernetes
+    digest: 0f3da9e3ba1a1d903167ad46bf11896c25d3bffbab2927ab550b20a3f78fbb27
+    name: httpbin
+    type: application
+    urls:
+    - https://github.com/christianAckman/charts/releases/download/httpbin-0.1.5/httpbin-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-04-14T15:22:29.442260981Z"
     description: A Helm chart for Kubernetes
     digest: 0d0c95dc0ca6df4990062580f764b7bc98df6b5124b5a7f7a39f88c8de49baa6
