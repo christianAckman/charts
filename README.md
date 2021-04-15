@@ -4,7 +4,11 @@
 
 `helm repo add christianackman http://christianackman.com/charts`
 
-`helm install httpbin christianackman/httpbin`
+`helm install mario christianackman/mario`
+
+`kubectl port-forward svc/mario 8080:80`
+
+`open http://localhost:8080`
 
 ## Tools:
 
