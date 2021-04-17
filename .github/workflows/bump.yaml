@@ -34,17 +34,12 @@ jobs:
       - name: Increment Chart Versions
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
-          helm local-chart-version bump -c "charts/mario" -s patch
-          new_version="$(helm local-chart-version get -c charts/mario)"
-          git add charts/mario
-          git commit -m "[release]: mario $new_version"
-          git push origin HEAD:master
+          changed_charts="$(git diff --name-only HEAD~1 | awk -F '/' '$1 ~ /charts/  {print $2}' | uniq)"
+          for chart in $changed_charts; do
+            helm local-chart-version bump -c "charts/$chart" -s patch
+            new_version="$(helm local-chart-version get -c charts/$chart)"
+            git add charts/$chart
+            git commit -m "[release]: $chart -- $new_version"
+            git push origin HEAD:master
+          done
 
-# changed_charts="$(git diff --name-only HEAD~1 | awk -F '/' '$1 ~ /src/  {print $2}' | uniq)"
-# for chart in $changed_charts; do
-#   helm local-chart-version bump -c "charts/$chart" -s patch
-#   new_version="$(helm local-chart-version get -c charts/$chart)"
-#   git add charts/$chart
-#   git commit -m "[release]: $chart -- $new_version"
-#   git push origin HEAD:master
-# done
