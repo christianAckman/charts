@@ -34,6 +34,16 @@ entries:
   mario:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-04-21T18:33:15.990287621Z"
+    description: A Helm chart for Kubernetes
+    digest: bcceb0259f4a18356b4b55f38fcc11b6be0db2b2451b93e743b11c8e2c27ad30
+    name: mario
+    type: application
+    urls:
+    - https://github.com/christianAckman/charts/releases/download/mario-0.1.5/mario-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-04-21T17:20:52.508550828Z"
     description: A Helm chart for Kubernetes
     digest: bd05c8e543507b710275821bfe5371d2f4630241e928e5a4cd20fed3b24f89f5
