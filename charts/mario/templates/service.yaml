@@ -4,6 +4,7 @@ metadata:
   name: {{ include "mario.fullname" . }}
   labels:
     {{- include "mario.labels" . | nindent 4 }}
+    test-app: mario
 spec:
   type: {{ .Values.service.type }}
   ports:
