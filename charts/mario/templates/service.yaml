@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "mario.labels" . | nindent 4 }}
     test-app: mario
-    ppa: oiram
+    ppa: oiram2
 spec:
   type: {{ .Values.service.type }}
   ports:
